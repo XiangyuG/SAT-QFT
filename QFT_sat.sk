@@ -1,0 +1,260 @@
+harness void main() {
+    // initialization of their position
+    int n = 2;
+    int[2][2] arr = {{0,1},{2,3}};
+    int[2][4] pos = {{0,0},{0,1},{1,0},{1,1}};
+    int N = 4;
+    int[4][4] I = {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
+    int C000= ??(1);
+    int C001= ??(1);
+    int C002= ??(1);
+    int C003= ??(1);
+    int C004= ??(1);
+    int C005= ??(1);
+    int C006= ??(1);
+    int C007= ??(1);
+    int C010= ??(1);
+    int C011= ??(1);
+    int C012= ??(1);
+    int C013= ??(1);
+    int C014= ??(1);
+    int C015= ??(1);
+    int C016= ??(1);
+    int C017= ??(1);
+    int C020= ??(1);
+    int C021= ??(1);
+    int C022= ??(1);
+    int C023= ??(1);
+    int C024= ??(1);
+    int C025= ??(1);
+    int C026= ??(1);
+    int C027= ??(1);
+    int C030= ??(1);
+    int C031= ??(1);
+    int C032= ??(1);
+    int C033= ??(1);
+    int C034= ??(1);
+    int C035= ??(1);
+    int C036= ??(1);
+    int C037= ??(1);
+    int C100= ??(1);
+    int C101= ??(1);
+    int C102= ??(1);
+    int C103= ??(1);
+    int C104= ??(1);
+    int C105= ??(1);
+    int C106= ??(1);
+    int C107= ??(1);
+    int C110= ??(1);
+    int C111= ??(1);
+    int C112= ??(1);
+    int C113= ??(1);
+    int C114= ??(1);
+    int C115= ??(1);
+    int C116= ??(1);
+    int C117= ??(1);
+    int C120= ??(1);
+    int C121= ??(1);
+    int C122= ??(1);
+    int C123= ??(1);
+    int C124= ??(1);
+    int C125= ??(1);
+    int C126= ??(1);
+    int C127= ??(1);
+    int C130= ??(1);
+    int C131= ??(1);
+    int C132= ??(1);
+    int C133= ??(1);
+    int C134= ??(1);
+    int C135= ??(1);
+    int C136= ??(1);
+    int C137= ??(1);
+    int C200= ??(1);
+    int C201= ??(1);
+    int C202= ??(1);
+    int C203= ??(1);
+    int C204= ??(1);
+    int C205= ??(1);
+    int C206= ??(1);
+    int C207= ??(1);
+    int C210= ??(1);
+    int C211= ??(1);
+    int C212= ??(1);
+    int C213= ??(1);
+    int C214= ??(1);
+    int C215= ??(1);
+    int C216= ??(1);
+    int C217= ??(1);
+    int C220= ??(1);
+    int C221= ??(1);
+    int C222= ??(1);
+    int C223= ??(1);
+    int C224= ??(1);
+    int C225= ??(1);
+    int C226= ??(1);
+    int C227= ??(1);
+    int C230= ??(1);
+    int C231= ??(1);
+    int C232= ??(1);
+    int C233= ??(1);
+    int C234= ??(1);
+    int C235= ??(1);
+    int C236= ??(1);
+    int C237= ??(1);
+    int C300= ??(1);
+    int C301= ??(1);
+    int C302= ??(1);
+    int C303= ??(1);
+    int C304= ??(1);
+    int C305= ??(1);
+    int C306= ??(1);
+    int C307= ??(1);
+    int C310= ??(1);
+    int C311= ??(1);
+    int C312= ??(1);
+    int C313= ??(1);
+    int C314= ??(1);
+    int C315= ??(1);
+    int C316= ??(1);
+    int C317= ??(1);
+    int C320= ??(1);
+    int C321= ??(1);
+    int C322= ??(1);
+    int C323= ??(1);
+    int C324= ??(1);
+    int C325= ??(1);
+    int C326= ??(1);
+    int C327= ??(1);
+    int C330= ??(1);
+    int C331= ??(1);
+    int C332= ??(1);
+    int C333= ??(1);
+    int C334= ??(1);
+    int C335= ??(1);
+    int C336= ??(1);
+    int C337= ??(1);
+    int[8][4][N] gate_swap = {{{C000, C001, C002, C003, C004, C005, C006, C007},{C010, C011, C012, C013, C014, C015, C016, C017},{C020, C021, C022, C023, C024, C025, C026, C027},{C030, C031, C032, C033, C034, C035, C036, C037}},
+                      {{C100,C101,C102,C103,C104,C105,C106,C107},{C110,C111,C112,C113,C114,C115,C116,C117},{C120,C121,C122,C123,C124,C125,C126,C127},{C130,C131,C132,C133,C134,C135,C136,C137}},
+                      {{C200,C201,C202,C203,C204,C205,C206,C207},{C210,C211,C212,C213,C214,C215,C216,C217},{C220,C221,C222,C223,C224,C225,C226,C227},{C230,C231,C232,C233,C234,C235,C236,C237}},
+                      {{C300,C301,C302,C303,C304,C305,C306,C307},{C310,C311,C312,C313,C314,C315,C316,C317},{C320,C321,C322,C323,C324,C325,C326,C327},{C330,C331,C332,C333,C334,C335,C336,C337}}};
+    // Ensure that at most one should be 1
+    assert (C000+C001+C002+C003+C004+C005+C006+C007<=1);
+    assert (C010+C011+C012+C013+C014+C015+C016+C017<=1);
+    assert (C020+C021+C022+C023+C024+C025+C026+C027<=1);
+    assert (C030+C031+C032+C033+C034+C035+C036+C037<=1);
+    assert (C100+C101+C102+C103+C104+C105+C106+C107<=1);
+    assert (C110+C111+C112+C113+C114+C115+C116+C117<=1);
+    assert (C120+C121+C122+C123+C124+C125+C126+C127<=1);
+    assert (C130+C131+C132+C133+C134+C135+C136+C137<=1);
+    assert (C200+C201+C202+C203+C204+C205+C206+C207<=1);
+    assert (C210+C211+C212+C213+C214+C215+C216+C217<=1);
+    assert (C220+C221+C222+C223+C224+C225+C226+C227<=1);
+    assert (C230+C231+C232+C233+C234+C235+C236+C237<=1);
+    assert (C300+C301+C302+C303+C304+C305+C306+C307<=1);
+    assert (C310+C311+C312+C313+C314+C315+C316+C317<=1);
+    assert (C320+C321+C322+C323+C324+C325+C326+C327<=1);
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < n * n; j++) {
+            if (gate_swap[i][j][0] == 1) {
+                // Up CX
+                assert (pos[j][0] > 0);
+                int v = arr[pos[j][0] - 1][pos[j][1]];
+                assert (v > j);
+                assert (gate_swap[i][v][0]+gate_swap[i][v][1]+gate_swap[i][v][2]+gate_swap[i][v][3]+gate_swap[i][v][4]+gate_swap[i][v][5]+gate_swap[i][v][6]+gate_swap[i][v][7] == 0);
+                // dependency constraints (all I[p][q] where )
+                assert (I[j][v] == 0);
+                for (int p = 0; p < j; p++) {
+                    assert (I[p][j] == 1);  // j is OK to do CX
+                    assert (I[p][v] == 1);  // v is CXed by other nodes smaller than j
+                }
+                I[j][v] = 1;
+            } else if (gate_swap[i][j][1] == 1) {
+                // Down CX
+                assert (pos[j][0] < n - 1);
+                int v = arr[pos[j][0] + 1][pos[j][1]];
+                assert (v > j);
+                assert (gate_swap[i][v][0]+gate_swap[i][v][1]+gate_swap[i][v][2]+gate_swap[i][v][3]+gate_swap[i][v][4]+gate_swap[i][v][5]+gate_swap[i][v][6]+gate_swap[i][v][7] == 0);
+                // dependency constraints
+                assert (I[j][v] == 0);
+                for (int p = 0; p < j; p++) {
+                    assert (I[p][j] == 1);  // j is OK to do CX
+                    assert (I[p][v] == 1);  // v is CXed by other nodes smaller than j
+                }
+                I[j][v] = 1;                
+            } else if (gate_swap[i][j][2] == 1) {
+                // Left CX
+                assert (pos[j][1] > 0);
+		int v = arr[pos[j][0]][pos[j][1] - 1];
+                assert (v > j);
+                assert (gate_swap[i][v][0]+gate_swap[i][v][1]+gate_swap[i][v][2]+gate_swap[i][v][3]+gate_swap[i][v][4]+gate_swap[i][v][5]+gate_swap[i][v][6]+gate_swap[i][v][7] == 0);
+                // dependency constraints
+                assert (I[j][v] == 0);
+                for (int p = 0; p < j; p++) {
+                    assert (I[p][j] == 1);  // j is OK to do CX
+                    assert (I[p][v] == 1);  // v is CXed by other nodes smaller than j
+                }
+                I[j][v] = 1;
+            } else if (gate_swap[i][j][3] == 1) {
+                // Right CX
+                assert (pos[j][1] < n - 1);
+                int v = arr[pos[j][0]][pos[j][1] - 1];
+                assert (v > j);
+                assert (gate_swap[i][v][0]+gate_swap[i][v][1]+gate_swap[i][v][2]+gate_swap[i][v][3]+gate_swap[i][v][4]+gate_swap[i][v][5]+gate_swap[i][v][6]+gate_swap[i][v][7] == 0);
+                // dependency constraints
+                assert (I[j][v] == 0);
+                for (int p = 0; p < j; p++) {
+                    assert (I[p][j] == 1);  // j is OK to do CX
+                    assert (I[p][v] == 1);  // v is CXed by other nodes smaller than j
+                }
+                I[j][v] = 1;
+            } else if (gate_swap[i][j][4] == 1) {
+               // Up
+               assert (pos[j][0] > 0);
+               int v = arr[pos[j][0] - 1][pos[j][1]];
+               assert (gate_swap[i][v][5] == 1);
+            } else if (gate_swap[i][j][5] == 1) {
+               // Down
+               assert (pos[j][0] < n - 1);
+               int v = arr[pos[j][0] + 1][pos[j][1]];
+               assert (gate_swap[i][v][4] == 1);
+            } else if (gate_swap[i][j][6] == 1) {
+               // Left
+               assert (pos[j][1] > 0);
+               int v = arr[pos[j][0]][pos[j][1] - 1];
+               assert (gate_swap[i][v][7] == 1);
+            } else if (gate_swap[i][j][7] == 1) {
+               // Right
+               assert (pos[j][1] < n - 1);
+               int v = arr[pos[j][0]][pos[j][1] + 1];
+               assert (gate_swap[i][v][6] == 1);
+            }
+        }
+        // Update pos vec
+        for (int j = 0; j < n * n; j++) {
+            if (arr[pos[j][0]][pos[j][1]] == j) {
+		if (gate_swap[i][j][4] == 1) {
+                    int v = arr[pos[j][0] - 1][pos[j][1]];
+                    pos[j][0] = pos[j][0] - 1;
+                    pos[v][0] = pos[v][0] + 1;
+                } else if (gate_swap[i][j][5] == 1) {
+		    int v = arr[pos[j][0] + 1][pos[j][1]];
+                    pos[j][0] = pos[j][0] + 1;
+                    pos[v][0] = pos[v][0] - 1;
+                } else if (gate_swap[i][j][6] == 1) {
+                    int v = arr[pos[j][0]][pos[j][1] - 1];
+                    pos[j][1] = pos[j][1] - 1;
+                    pos[v][1] = pos[v][1] + 1;
+                } else if (gate_swap[i][j][7] == 1) {
+                    int v = arr[pos[j][0]][pos[j][1] + 1];
+                    pos[j][1] = pos[j][1] + 1;
+                    pos[v][1] = pos[v][1] - 1;
+                }                
+	    }
+        }
+        // Update arr 
+	for (int j = 0; j < n * n; j++) {
+            arr[pos[j][0]][pos[j][1]] = j;
+        }        
+    }
+    assert (I == {{0,1,1,1},{0,0,1,1},{0,0,0,0},{0,0,0,0}});
+}
