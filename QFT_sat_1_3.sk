@@ -1,0 +1,178 @@
+harness void main() {
+    // initialization of their position
+    int n = 3;
+    int N = 4;
+    int[3] arr = {0,1,2};
+int[3] pos = {0,1,2};
+int[3][3] I = {{0,0,0},{0,0,0},{0,0,0}};
+int C_0_0_0= ??(1);
+int C_0_0_1= ??(1);
+int C_0_0_2= ??(1);
+int C_0_0_3= ??(1);
+int C_0_0_4= ??;
+int C_0_1_0= ??(1);
+int C_0_1_1= ??(1);
+int C_0_1_2= ??(1);
+int C_0_1_3= ??(1);
+int C_0_1_4= ??;
+int C_0_2_0= ??(1);
+int C_0_2_1= ??(1);
+int C_0_2_2= ??(1);
+int C_0_2_3= ??(1);
+int C_0_2_4= ??;
+int C_1_0_0= ??(1);
+int C_1_0_1= ??(1);
+int C_1_0_2= ??(1);
+int C_1_0_3= ??(1);
+int C_1_0_4= ??;
+int C_1_1_0= ??(1);
+int C_1_1_1= ??(1);
+int C_1_1_2= ??(1);
+int C_1_1_3= ??(1);
+int C_1_1_4= ??;
+int C_1_2_0= ??(1);
+int C_1_2_1= ??(1);
+int C_1_2_2= ??(1);
+int C_1_2_3= ??(1);
+int C_1_2_4= ??;
+int C_2_0_0= ??(1);
+int C_2_0_1= ??(1);
+int C_2_0_2= ??(1);
+int C_2_0_3= ??(1);
+int C_2_0_4= ??;
+int C_2_1_0= ??(1);
+int C_2_1_1= ??(1);
+int C_2_1_2= ??(1);
+int C_2_1_3= ??(1);
+int C_2_1_4= ??;
+int C_2_2_0= ??(1);
+int C_2_2_1= ??(1);
+int C_2_2_2= ??(1);
+int C_2_2_3= ??(1);
+int C_2_2_4= ??;
+int C_3_0_0= ??(1);
+int C_3_0_1= ??(1);
+int C_3_0_2= ??(1);
+int C_3_0_3= ??(1);
+int C_3_0_4= ??;
+int C_3_1_0= ??(1);
+int C_3_1_1= ??(1);
+int C_3_1_2= ??(1);
+int C_3_1_3= ??(1);
+int C_3_1_4= ??;
+int C_3_2_0= ??(1);
+int C_3_2_1= ??(1);
+int C_3_2_2= ??(1);
+int C_3_2_3= ??(1);
+int C_3_2_4= ??;
+int C_4_0_0= ??(1);
+int C_4_0_1= ??(1);
+int C_4_0_2= ??(1);
+int C_4_0_3= ??(1);
+int C_4_0_4= ??;
+int C_4_1_0= ??(1);
+int C_4_1_1= ??(1);
+int C_4_1_2= ??(1);
+int C_4_1_3= ??(1);
+int C_4_1_4= ??;
+int C_4_2_0= ??(1);
+int C_4_2_1= ??(1);
+int C_4_2_2= ??(1);
+int C_4_2_3= ??(1);
+int C_4_2_4= ??;
+int[5][3][5] gate_swap ={{{C_0_0_0,C_0_0_1,C_0_0_2,C_0_0_3,C_0_0_4},{C_0_1_0,C_0_1_1,C_0_1_2,C_0_1_3,C_0_1_4},{C_0_2_0,C_0_2_1,C_0_2_2,C_0_2_3,C_0_2_4}},
+{{C_1_0_0,C_1_0_1,C_1_0_2,C_1_0_3,C_1_0_4},{C_1_1_0,C_1_1_1,C_1_1_2,C_1_1_3,C_1_1_4},{C_1_2_0,C_1_2_1,C_1_2_2,C_1_2_3,C_1_2_4}},
+{{C_2_0_0,C_2_0_1,C_2_0_2,C_2_0_3,C_2_0_4},{C_2_1_0,C_2_1_1,C_2_1_2,C_2_1_3,C_2_1_4},{C_2_2_0,C_2_2_1,C_2_2_2,C_2_2_3,C_2_2_4}},
+{{C_3_0_0,C_3_0_1,C_3_0_2,C_3_0_3,C_3_0_4},{C_3_1_0,C_3_1_1,C_3_1_2,C_3_1_3,C_3_1_4},{C_3_2_0,C_3_2_1,C_3_2_2,C_3_2_3,C_3_2_4}},
+{{C_4_0_0,C_4_0_1,C_4_0_2,C_4_0_3,C_4_0_4},{C_4_1_0,C_4_1_1,C_4_1_2,C_4_1_3,C_4_1_4},{C_4_2_0,C_4_2_1,C_4_2_2,C_4_2_3,C_4_2_4}}};
+assert (C_0_0_0+C_0_0_1+C_0_0_2+C_0_0_3<=1);
+assert (C_0_1_0+C_0_1_1+C_0_1_2+C_0_1_3<=1);
+assert (C_0_2_0+C_0_2_1+C_0_2_2+C_0_2_3<=1);
+assert (C_1_0_0+C_1_0_1+C_1_0_2+C_1_0_3<=1);
+assert (C_1_1_0+C_1_1_1+C_1_1_2+C_1_1_3<=1);
+assert (C_1_2_0+C_1_2_1+C_1_2_2+C_1_2_3<=1);
+assert (C_2_0_0+C_2_0_1+C_2_0_2+C_2_0_3<=1);
+assert (C_2_1_0+C_2_1_1+C_2_1_2+C_2_1_3<=1);
+assert (C_2_2_0+C_2_2_1+C_2_2_2+C_2_2_3<=1);
+assert (C_3_0_0+C_3_0_1+C_3_0_2+C_3_0_3<=1);
+assert (C_3_1_0+C_3_1_1+C_3_1_2+C_3_1_3<=1);
+assert (C_3_2_0+C_3_2_1+C_3_2_2+C_3_2_3<=1);
+assert (C_4_0_0+C_4_0_1+C_4_0_2+C_4_0_3<=1);
+assert (C_4_1_0+C_4_1_1+C_4_1_2+C_4_1_3<=1);
+assert (C_4_2_0+C_4_2_1+C_4_2_2+C_4_2_3<=1);
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < n; j++) {
+            if (gate_swap[i][j][0] == 1) {
+                // L CX
+                assert (pos[j] > 0);
+                int v = arr[pos[j] - 1];
+                // dependency constraints (all I[p][q] where )
+                assert (v > j);
+                assert (I[j][v] == 0);
+                assert (gate_swap[i][v][4] == j);
+                assert (gate_swap[i][v][0]+gate_swap[i][v][1]+gate_swap[i][v][2]+gate_swap[i][v][3] == 0);
+                for (int p = 0; p < j; p++) {
+                    assert (I[p][j] == 1);  // j is OK to do CX
+                    assert (I[p][v] == 1);  // v is CXed by other nodes smaller than j
+                }
+                for (int p = j + 1; p < v; p++) {
+                    assert (I[j][p] == 1); // all p's before v have been CXed by j
+                }
+            } else if (gate_swap[i][j][1] == 1) {
+                // R CX
+                assert (pos[j] < n - 1);
+                int v = arr[pos[j] + 1];
+                // dependency constraints
+                assert (gate_swap[i][v][0]+gate_swap[i][v][1]+gate_swap[i][v][2]+gate_swap[i][v][3] == 0);
+                assert (v > j);
+                assert (I[j][v] == 0);
+                assert (gate_swap[i][v][4] == j);
+                for (int p = 0; p < j; p++) {
+                    assert (I[p][j] == 1);  // j is OK to do CX
+                    assert (I[p][v] == 1);  // v is CXed by other nodes smaller than j
+                }
+                for (int p = j + 1; p < v; p++) {
+                    assert (I[j][p] == 1); // all p's before v have been CXed by j
+                }
+            } else if (gate_swap[i][j][2] == 1) {
+               // L Swap
+               assert (pos[j] > 0);
+               int v = arr[pos[j] - 1];
+               assert (gate_swap[i][v][3] == 1);
+            } else if (gate_swap[i][j][3] == 1) {
+               // R Swap
+               assert (pos[j] < n - 1);
+               int v = arr[pos[j] + 1];
+               assert (gate_swap[i][v][2] == 1);
+            }
+        }
+        for (int j = 0; j < n; j++) {
+            if (gate_swap[i][j][0] == 1) {
+                int v = arr[pos[j] - 1];
+                I[j][v] = 1;
+            } else if (gate_swap[i][j][1] == 1) {
+                int v = arr[pos[j] + 1];
+                I[j][v] = 1;
+            }
+        }
+        // Update pos vec
+        for (int j = 0; j < n; j++) {
+            if (arr[pos[j]] == j) {
+                if (gate_swap[i][j][2] == 1) {
+                    int v = arr[pos[j] - 1];
+                    pos[j] = pos[j] - 1;
+                    pos[v] = pos[v] + 1;
+                } else if (gate_swap[i][j][3] == 1) {
+                    int v = arr[pos[j] + 1];
+                    pos[j] = pos[j] + 1;
+                    pos[v] = pos[v] - 1;
+                }   
+            }
+        }
+        // Update arr 
+	    for (int j = 0; j < n; j++) {
+            arr[pos[j]] = j;
+        }        
+    }
+    assert (I == {{0,1,1},{0,0,1},{0,0,0}});
+}
