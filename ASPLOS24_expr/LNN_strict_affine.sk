@@ -1,0 +1,53 @@
+int affine_beg(int idx) {
+    int div = ??;
+    return (idx % div);
+}
+
+int min(int a, int b) {
+    if (a > b) {
+        return b;
+    }
+    return a;
+}
+
+int affine_end(int idx) {
+    int c1 = ??;
+    int c2 = ??;
+    return min(idx + c1, c2 - idx);
+}
+
+void CPHASE_SWAP(ref int[6] pos, ref int[6][6] I, int i) {
+    int beg = affine_beg(i);
+    int end = affine_end(i);
+    // CPHASE
+    for (int j = beg; j < end; j += 2) {
+        int small = pos[j];
+        int big = pos[j + 1];
+        assert(I[small][big] == 0);
+        for (int k = 0; k < small; k++) {
+            assert(I[k][small] == 1);
+            assert(I[k][big] == 1);
+        }
+        for (int k = small + 1; k < big; k++) {
+            assert(I[small][k] == 1);
+        }
+        I[small][big] = 1;
+    }
+    // SWAP
+    for (int j = beg; j < end; j += 2) {
+        int idx = pos[j];
+        pos[j] = pos[j + 1];
+        pos[j + 1] = idx;        
+    }
+}
+
+harness void main() {
+    int[6] pos = {0,1,2,3,4,5};
+    int[6][6] I = {{0,0,0,0,0,0},{0,0,0,0,0,0},{0,0,0,0,0,0},{0,0,0,0,0,0},{0,0,0,0,0,0},{0,0,0,0,0,0}};
+    int N = 9;
+    for (int i = 0; i < N; i++) {
+        CPHASE_SWAP(pos, I, i);
+    }
+
+    assert (I == {{0,1,1,1,1,1},{0,0,1,1,1,1},{0,0,0,1,1,1},{0,0,0,0,1,1},{0,0,0,0,0,1},{0,0,0,0,0,0}});
+}
