@@ -1,0 +1,117 @@
+void step1_CPHASE_vertical(ref int[8][8] I, ref int[4][2] pos) {
+    int beg = ??;
+    int end = ??;
+    for (int i = beg; i < end; i++) {
+        int up = pos[0][i];
+        int down = pos[1][i];
+        if (up < down) {
+            assert (I[up][down] == 0);
+            for (int j = 0; j < up; j++) {
+                assert(I[j][up] == 1);
+                assert(I[j][down] == 1);
+            }
+            for (int j = up + 1; j < down; j++) {
+                assert(I[up][j] == 1);
+            }
+            I[up][down] = 1;
+        } else {
+            assert (I[down][up] == 0);
+            for (int j = 0; j < down; j++) {
+                assert(I[j][down] == 1);
+                assert(I[j][up] == 1);
+            }
+            for (int j = down + 1; j < up; j++) {
+                assert(I[down][j] == 1);
+            }
+            I[down][up] = 1;
+        }
+    }
+}
+
+void step1_CPHASE_SWAP_horizontal(ref int[8][8] I, ref int[4][2] pos) {
+    int beg = ??;
+    int end = ??;
+    int flag = ??(1);
+    
+    for (int i = beg; i < end; i++) {
+        int up_l = pos[0][i];
+        int up_r = pos[0][i + 1];
+        int down_l = pos[1][i];
+        int down_r = pos[1][i + 1];
+        if (flag == 0) { // CPHASE UP; SWAP DOWN
+            if (up_l < up_r) {
+                assert(I[up_l][up_r] == 0);
+                for (int j = 0; j < up_l; j++) {
+                    assert(I[j][up_l] == 1);
+                    assert(I[j][up_r] == 1);
+                }
+                for (int j = up_l + 1; j < up_r; j++) {
+                    assert(I[j][up_r] == 1);
+                }
+                I[up_l][up_r] = 1;
+            } else {
+                // up_r < up_l
+                assert(I[up_r][up_l] == 0);
+                for (int j = 0; j < up_r; j++) {
+                    assert(I[j][up_r] == 1);
+                    assert(I[j][up_l] == 1);
+                }
+                for (int j = up_r + 1; j < up_l; j++) {
+                    assert(I[j][up_l] == 1);
+                }
+                I[up_r][up_l] = 1;
+            }
+            pos[1][i + 1] = down_l;
+            pos[1][i] = down_r;
+        } else {
+            pos[0][i + 1] = up_l;
+            pos[0][i] = up_r;
+            if (down_l < down_r) {
+                assert(I[down_l][down_r] == 0);
+                for (int j = 0; j < down_l; j++) {
+                    assert(I[j][down_l] == 1);
+                    assert(I[j][down_r] == 1);
+                }
+                for (int j = down_l + 1; j < down_r; j++) {
+                    assert(I[j][down_r] == 1);
+                }
+                I[down_l][down_r] = 1;
+            } else {
+                // down_r < down_l
+                assert(I[down_r][down_l] == 0);
+                for (int j = 0; j < down_r; j++) {
+                    assert(I[j][down_r] == 1);
+                    assert(I[j][down_l] == 1);
+                }
+                for (int j = down_r + 1; j < down_l; j++) {
+                    assert(I[j][down_l] == 1);
+                }
+                I[down_r][down_l] = 1;
+            }
+        }
+    }
+}
+
+void step_1(ref int[8][8] I, ref int[4][2] pos) {
+    int flag = ??(1);
+    if (flag == 0) {
+        step1_CPHASE_vertical(I, pos);
+    } else {
+        step1_CPHASE_SWAP_horizontal(I, pos);
+    }
+}
+
+int[8][8] foo() {
+    int[4][2] pos = {{0,2,4,6}, {1,3,5,7}};
+    int[8][8] I = {{0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0},
+                  {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}};
+    
+    step_1(I, pos);
+
+    return I;
+}
+
+harness void main() {
+    assert foo() == {{0, 1, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0},
+                    {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}};
+}

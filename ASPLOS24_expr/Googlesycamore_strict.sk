@@ -1,0 +1,103 @@
+
+
+// 0 1 2 3 4 5
+// 6 7 8 9 10 11
+
+// the CPHASE gate should be between even position of layer 0 and odd position of layer 1
+
+// Step 1
+void SWAP_1(ref int[6][2] pos) {
+    int beg_u = ??;
+    int end_u = ??;
+    int beg_d = ??;
+    int end_d = ??;
+    for (int k = beg_u; k < end_u; k += 2) {
+        int tmp = pos[0][k];
+        pos[0][k] = pos[0][k + 1];
+        pos[0][k + 1] = tmp;
+    }
+    for (int k = beg_d; k < end_d; k += 2) {
+        int tmp = pos[1][k];
+        pos[1][k] = pos[1][k + 1];
+        pos[1][k + 1] = tmp;
+    }
+}
+
+void CPHASE_1(ref int[6][6] I, ref int[6][2] pos) {
+    int beg_u = ??;
+    int end_u = ??;
+    for (int k = beg_u; k < end_u; k+=2) {
+        int small = pos[0][k];
+        int big = pos[1][k-1] - 6;
+        assert(I[small][big] == 0);
+        for (int p = 0; p < small; p++) {
+            assert(I[p][big] == 1);
+        }
+        I[small][big] = 1;
+    }
+}
+
+void step_1(ref int[6][6] I, ref int[6][2] pos) {
+  int flag = ??(1);
+    if (flag == 0) {
+        SWAP_1(pos);
+    } else {
+        CPHASE_1(I, pos);
+    }
+}
+
+    // Step 2
+    void SWAP_2(ref int[6][2] pos) {
+        int beg_u = ??;
+        int end_u = ??;
+        int beg_d = ??;
+        int end_d = ??;
+        for (int k = beg_u; k < end_u; k += 2) {
+            int tmp = pos[0][k];
+            pos[0][k] = pos[0][k + 1];
+            pos[0][k + 1] = tmp;
+        }
+        for (int k = beg_d; k < end_d; k += 2) {
+            int tmp = pos[1][k];
+            pos[1][k] = pos[1][k + 1];
+            pos[1][k + 1] = tmp;
+        }
+    }
+
+    void CPHASE_2(ref int[6][6] I, ref int[6][2] pos) {
+        int beg_u = ??;
+        int end_u = ??;
+        for (int k = beg_u; k < end_u; k+=2) {
+            int small = pos[0][k];
+            int big = pos[1][k-1] - 6;
+            assert(I[small][big] == 0);
+            for (int p = 0; p < small; p++) {
+                assert(I[p][big] == 1);
+            }
+            I[small][big] = 1;
+        }
+    }
+
+    void step_2(ref int[6][6] I, ref int[6][2] pos) {
+    int flag = ??(1);
+        if (flag == 0) {
+            SWAP_2(pos);
+        } else {
+            CPHASE_2(I, pos);
+        }
+    }
+
+int[6][6] foo() {
+    int[6][2] pos = {{0,1,2,3,4,5}, {6,7,8,9,10,11}};
+    int[6][6] I = {{0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, 
+                  {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}};
+    
+    step_1(I, pos);
+    step_2(I, pos);
+
+    return I;
+}
+
+harness void main() {
+    assert foo() == {{1, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}};
+}
