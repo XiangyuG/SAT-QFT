@@ -1,6 +1,9 @@
 import sys
 
 def main(argv):
+    if len(argv) != 2:
+        print("Usage: python3", argv[0], "<step number>")
+        exit(1)
     idx = argv[1]
     out_str = '''
     // Step ''' + str(idx) + \
@@ -25,6 +28,7 @@ def main(argv):
     void CPHASE_''' + str(idx) + '''(ref int[6][6] I, ref int[6][2] pos) {
         int beg_u = ??;
         int end_u = ??;
+        assert(beg_u % 2 == 1);
         for (int k = beg_u; k < end_u; k+=2) {
             int small = pos[0][k];
             int big = pos[1][k-1] - 6;

@@ -25,6 +25,7 @@ void SWAP_1(ref int[6][2] pos) {
 
 void CPHASE_1(ref int[6][6] I, ref int[6][2] pos) {
     int beg_u = ??;
+    assert(beg_u % 2 == 1);
     int end_u = ??;
     for (int k = beg_u; k < end_u; k+=2) {
         int small = pos[0][k];
@@ -67,6 +68,7 @@ void step_1(ref int[6][6] I, ref int[6][2] pos) {
     void CPHASE_2(ref int[6][6] I, ref int[6][2] pos) {
         int beg_u = ??;
         int end_u = ??;
+        assert(beg_u % 2 == 1);
         for (int k = beg_u; k < end_u; k+=2) {
             int small = pos[0][k];
             int big = pos[1][k-1] - 6;
@@ -87,17 +89,492 @@ void step_1(ref int[6][6] I, ref int[6][2] pos) {
         }
     }
 
+    // Step 3
+    void SWAP_3(ref int[6][2] pos) {
+        int beg_u = ??;
+        int end_u = ??;
+        int beg_d = ??;
+        int end_d = ??;
+        for (int k = beg_u; k < end_u; k += 2) {
+            int tmp = pos[0][k];
+            pos[0][k] = pos[0][k + 1];
+            pos[0][k + 1] = tmp;
+        }
+        for (int k = beg_d; k < end_d; k += 2) {
+            int tmp = pos[1][k];
+            pos[1][k] = pos[1][k + 1];
+            pos[1][k + 1] = tmp;
+        }
+    }
+
+    void CPHASE_3(ref int[6][6] I, ref int[6][2] pos) {
+        int beg_u = ??;
+        assert(beg_u % 2 == 1);
+        int end_u = ??;
+        for (int k = beg_u; k < end_u; k+=2) {
+            int small = pos[0][k];
+            int big = pos[1][k-1] - 6;
+            assert(I[small][big] == 0);
+            for (int p = 0; p < small; p++) {
+                assert(I[p][big] == 1);
+            }
+            I[small][big] = 1;
+        }
+    }
+
+    void step_3(ref int[6][6] I, ref int[6][2] pos) {
+    int flag = ??(1);
+        if (flag == 0) {
+            SWAP_3(pos);
+        } else {
+            CPHASE_3(I, pos);
+        }
+    }
+
+    // Step 4
+    void SWAP_4(ref int[6][2] pos) {
+        int beg_u = ??;
+        int end_u = ??;
+        int beg_d = ??;
+        int end_d = ??;
+        for (int k = beg_u; k < end_u; k += 2) {
+            int tmp = pos[0][k];
+            pos[0][k] = pos[0][k + 1];
+            pos[0][k + 1] = tmp;
+        }
+        for (int k = beg_d; k < end_d; k += 2) {
+            int tmp = pos[1][k];
+            pos[1][k] = pos[1][k + 1];
+            pos[1][k + 1] = tmp;
+        }
+    }
+
+    void CPHASE_4(ref int[6][6] I, ref int[6][2] pos) {
+        int beg_u = ??;
+        assert(beg_u % 2 == 1);
+        int end_u = ??;
+        for (int k = beg_u; k < end_u; k+=2) {
+            int small = pos[0][k];
+            int big = pos[1][k-1] - 6;
+            assert(I[small][big] == 0);
+            for (int p = 0; p < small; p++) {
+                assert(I[p][big] == 1);
+            }
+            I[small][big] = 1;
+        }
+    }
+
+    void step_4(ref int[6][6] I, ref int[6][2] pos) {
+    int flag = ??(1);
+        if (flag == 0) {
+            SWAP_4(pos);
+        } else {
+            CPHASE_4(I, pos);
+        }
+    }
+    // Step 5
+    void SWAP_5(ref int[6][2] pos) {
+        int beg_u = ??;
+        int end_u = ??;
+        int beg_d = ??;
+        int end_d = ??;
+        for (int k = beg_u; k < end_u; k += 2) {
+            int tmp = pos[0][k];
+            pos[0][k] = pos[0][k + 1];
+            pos[0][k + 1] = tmp;
+        }
+        for (int k = beg_d; k < end_d; k += 2) {
+            int tmp = pos[1][k];
+            pos[1][k] = pos[1][k + 1];
+            pos[1][k + 1] = tmp;
+        }
+    }
+
+    void CPHASE_5(ref int[6][6] I, ref int[6][2] pos) {
+        int beg_u = ??;
+        assert(beg_u % 2 == 1);
+        int end_u = ??;
+        for (int k = beg_u; k < end_u; k+=2) {
+            int small = pos[0][k];
+            int big = pos[1][k-1] - 6;
+            assert(I[small][big] == 0);
+            for (int p = 0; p < small; p++) {
+                assert(I[p][big] == 1);
+            }
+            I[small][big] = 1;
+        }
+    }
+
+    void step_5(ref int[6][6] I, ref int[6][2] pos) {
+    int flag = ??(1);
+        if (flag == 0) {
+            SWAP_5(pos);
+        } else {
+            CPHASE_5(I, pos);
+        }
+    }
+    // Step 6
+    void SWAP_6(ref int[6][2] pos) {
+        int beg_u = ??;
+        int end_u = ??;
+        int beg_d = ??;
+        int end_d = ??;
+        for (int k = beg_u; k < end_u; k += 2) {
+            int tmp = pos[0][k];
+            pos[0][k] = pos[0][k + 1];
+            pos[0][k + 1] = tmp;
+        }
+        for (int k = beg_d; k < end_d; k += 2) {
+            int tmp = pos[1][k];
+            pos[1][k] = pos[1][k + 1];
+            pos[1][k + 1] = tmp;
+        }
+    }
+
+    void CPHASE_6(ref int[6][6] I, ref int[6][2] pos) {
+        int beg_u = ??;
+        assert(beg_u % 2 == 1);
+        int end_u = ??;
+        for (int k = beg_u; k < end_u; k+=2) {
+            int small = pos[0][k];
+            int big = pos[1][k-1] - 6;
+            assert(I[small][big] == 0);
+            for (int p = 0; p < small; p++) {
+                assert(I[p][big] == 1);
+            }
+            I[small][big] = 1;
+        }
+    }
+
+    void step_6(ref int[6][6] I, ref int[6][2] pos) {
+    int flag = ??(1);
+        if (flag == 0) {
+            SWAP_6(pos);
+        } else {
+            CPHASE_6(I, pos);
+        }
+    }
+
+    // Step 7
+    void SWAP_7(ref int[6][2] pos) {
+        int beg_u = ??;
+        int end_u = ??;
+        int beg_d = ??;
+        int end_d = ??;
+        for (int k = beg_u; k < end_u; k += 2) {
+            int tmp = pos[0][k];
+            pos[0][k] = pos[0][k + 1];
+            pos[0][k + 1] = tmp;
+        }
+        for (int k = beg_d; k < end_d; k += 2) {
+            int tmp = pos[1][k];
+            pos[1][k] = pos[1][k + 1];
+            pos[1][k + 1] = tmp;
+        }
+    }
+
+    void CPHASE_7(ref int[6][6] I, ref int[6][2] pos) {
+        int beg_u = ??;
+        assert(beg_u % 2 == 1);
+        int end_u = ??;
+        for (int k = beg_u; k < end_u; k+=2) {
+            int small = pos[0][k];
+            int big = pos[1][k-1] - 6;
+            assert(I[small][big] == 0);
+            for (int p = 0; p < small; p++) {
+                assert(I[p][big] == 1);
+            }
+            I[small][big] = 1;
+        }
+    }
+
+    void step_7(ref int[6][6] I, ref int[6][2] pos) {
+    int flag = ??(1);
+        if (flag == 0) {
+            SWAP_7(pos);
+        } else {
+            CPHASE_7(I, pos);
+        }
+    }
+
+    // Step 8
+    void SWAP_8(ref int[6][2] pos) {
+        int beg_u = ??;
+        int end_u = ??;
+        int beg_d = ??;
+        int end_d = ??;
+        for (int k = beg_u; k < end_u; k += 2) {
+            int tmp = pos[0][k];
+            pos[0][k] = pos[0][k + 1];
+            pos[0][k + 1] = tmp;
+        }
+        for (int k = beg_d; k < end_d; k += 2) {
+            int tmp = pos[1][k];
+            pos[1][k] = pos[1][k + 1];
+            pos[1][k + 1] = tmp;
+        }
+    }
+
+    void CPHASE_8(ref int[6][6] I, ref int[6][2] pos) {
+        int beg_u = ??;
+        assert(beg_u % 2 == 1);
+        int end_u = ??;
+        for (int k = beg_u; k < end_u; k+=2) {
+            int small = pos[0][k];
+            int big = pos[1][k-1] - 6;
+            assert(I[small][big] == 0);
+            for (int p = 0; p < small; p++) {
+                assert(I[p][big] == 1);
+            }
+            I[small][big] = 1;
+        }
+    }
+
+    void step_8(ref int[6][6] I, ref int[6][2] pos) {
+    int flag = ??(1);
+        if (flag == 0) {
+            SWAP_8(pos);
+        } else {
+            CPHASE_8(I, pos);
+        }
+    }
+
+    // Step 9
+    void SWAP_9(ref int[6][2] pos) {
+        int beg_u = ??;
+        int end_u = ??;
+        int beg_d = ??;
+        int end_d = ??;
+        for (int k = beg_u; k < end_u; k += 2) {
+            int tmp = pos[0][k];
+            pos[0][k] = pos[0][k + 1];
+            pos[0][k + 1] = tmp;
+        }
+        for (int k = beg_d; k < end_d; k += 2) {
+            int tmp = pos[1][k];
+            pos[1][k] = pos[1][k + 1];
+            pos[1][k + 1] = tmp;
+        }
+    }
+
+    void CPHASE_9(ref int[6][6] I, ref int[6][2] pos) {
+        int beg_u = ??;
+        int end_u = ??;
+        assert(beg_u % 2 == 1);
+        for (int k = beg_u; k < end_u; k+=2) {
+            int small = pos[0][k];
+            int big = pos[1][k-1] - 6;
+            assert(I[small][big] == 0);
+            for (int p = 0; p < small; p++) {
+                assert(I[p][big] == 1);
+            }
+            I[small][big] = 1;
+        }
+    }
+
+    void step_9(ref int[6][6] I, ref int[6][2] pos) {
+    int flag = ??(1);
+        if (flag == 0) {
+            SWAP_9(pos);
+        } else {
+            CPHASE_9(I, pos);
+        }
+    }
+
+    // Step 10
+    void SWAP_10(ref int[6][2] pos) {
+        int beg_u = ??;
+        int end_u = ??;
+        int beg_d = ??;
+        int end_d = ??;
+        for (int k = beg_u; k < end_u; k += 2) {
+            int tmp = pos[0][k];
+            pos[0][k] = pos[0][k + 1];
+            pos[0][k + 1] = tmp;
+        }
+        for (int k = beg_d; k < end_d; k += 2) {
+            int tmp = pos[1][k];
+            pos[1][k] = pos[1][k + 1];
+            pos[1][k + 1] = tmp;
+        }
+    }
+
+    void CPHASE_10(ref int[6][6] I, ref int[6][2] pos) {
+        int beg_u = ??;
+        int end_u = ??;
+        assert(beg_u % 2 == 1);
+        for (int k = beg_u; k < end_u; k+=2) {
+            int small = pos[0][k];
+            int big = pos[1][k-1] - 6;
+            assert(I[small][big] == 0);
+            for (int p = 0; p < small; p++) {
+                assert(I[p][big] == 1);
+            }
+            I[small][big] = 1;
+        }
+    }
+
+    void step_10(ref int[6][6] I, ref int[6][2] pos) {
+    int flag = ??(1);
+        if (flag == 0) {
+            SWAP_10(pos);
+        } else {
+            CPHASE_10(I, pos);
+        }
+    }
+
+    // Step 11
+    void SWAP_11(ref int[6][2] pos) {
+        int beg_u = ??;
+        int end_u = ??;
+        int beg_d = ??;
+        int end_d = ??;
+        for (int k = beg_u; k < end_u; k += 2) {
+            int tmp = pos[0][k];
+            pos[0][k] = pos[0][k + 1];
+            pos[0][k + 1] = tmp;
+        }
+        for (int k = beg_d; k < end_d; k += 2) {
+            int tmp = pos[1][k];
+            pos[1][k] = pos[1][k + 1];
+            pos[1][k + 1] = tmp;
+        }
+    }
+
+    void CPHASE_11(ref int[6][6] I, ref int[6][2] pos) {
+        int beg_u = ??;
+        int end_u = ??;
+        assert(beg_u % 2 == 1);
+        for (int k = beg_u; k < end_u; k+=2) {
+            int small = pos[0][k];
+            int big = pos[1][k-1] - 6;
+            assert(I[small][big] == 0);
+            for (int p = 0; p < small; p++) {
+                assert(I[p][big] == 1);
+            }
+            I[small][big] = 1;
+        }
+    }
+
+    void step_11(ref int[6][6] I, ref int[6][2] pos) {
+    int flag = ??(1);
+        if (flag == 0) {
+            SWAP_11(pos);
+        } else {
+            CPHASE_11(I, pos);
+        }
+    }
+
+    // Step 12
+    void SWAP_12(ref int[6][2] pos) {
+        int beg_u = ??;
+        int end_u = ??;
+        int beg_d = ??;
+        int end_d = ??;
+        for (int k = beg_u; k < end_u; k += 2) {
+            int tmp = pos[0][k];
+            pos[0][k] = pos[0][k + 1];
+            pos[0][k + 1] = tmp;
+        }
+        for (int k = beg_d; k < end_d; k += 2) {
+            int tmp = pos[1][k];
+            pos[1][k] = pos[1][k + 1];
+            pos[1][k + 1] = tmp;
+        }
+    }
+
+    void CPHASE_12(ref int[6][6] I, ref int[6][2] pos) {
+        int beg_u = ??;
+        int end_u = ??;
+        assert(beg_u % 2 == 1);
+        for (int k = beg_u; k < end_u; k+=2) {
+            int small = pos[0][k];
+            int big = pos[1][k-1] - 6;
+            assert(I[small][big] == 0);
+            for (int p = 0; p < small; p++) {
+                assert(I[p][big] == 1);
+            }
+            I[small][big] = 1;
+        }
+    }
+
+    void step_12(ref int[6][6] I, ref int[6][2] pos) {
+    int flag = ??(1);
+        if (flag == 0) {
+            SWAP_12(pos);
+        } else {
+            CPHASE_12(I, pos);
+        }
+    }
+
+    // Step 13
+    void SWAP_13(ref int[6][2] pos) {
+        int beg_u = ??;
+        int end_u = ??;
+        int beg_d = ??;
+        int end_d = ??;
+        for (int k = beg_u; k < end_u; k += 2) {
+            int tmp = pos[0][k];
+            pos[0][k] = pos[0][k + 1];
+            pos[0][k + 1] = tmp;
+        }
+        for (int k = beg_d; k < end_d; k += 2) {
+            int tmp = pos[1][k];
+            pos[1][k] = pos[1][k + 1];
+            pos[1][k + 1] = tmp;
+        }
+    }
+
+    void CPHASE_13(ref int[6][6] I, ref int[6][2] pos) {
+        int beg_u = ??;
+        int end_u = ??;
+        assert(beg_u % 2 == 1);
+        for (int k = beg_u; k < end_u; k+=2) {
+            int small = pos[0][k];
+            int big = pos[1][k-1] - 6;
+            assert(I[small][big] == 0);
+            for (int p = 0; p < small; p++) {
+                assert(I[p][big] == 1);
+            }
+            I[small][big] = 1;
+        }
+    }
+
+    void step_13(ref int[6][6] I, ref int[6][2] pos) {
+    int flag = ??(1);
+        if (flag == 0) {
+            SWAP_13(pos);
+        } else {
+            CPHASE_13(I, pos);
+        }
+    }
+
 int[6][6] foo() {
     int[6][2] pos = {{0,1,2,3,4,5}, {6,7,8,9,10,11}};
     int[6][6] I = {{0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, 
                   {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}};
     
     step_1(I, pos);
+
     step_2(I, pos);
+    step_3(I, pos);
+    step_4(I, pos);
+
+    step_5(I, pos);
+    step_6(I, pos);
+    step_7(I, pos);
+
+    step_8(I, pos);
+    step_9(I, pos);
+    step_10(I, pos);
+
+    step_11(I, pos);
+    step_12(I, pos);
+    step_13(I, pos);
 
     return I;
 }
 
 harness void main() {
-    assert foo() == {{1, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}};
+    assert foo() == {{1, 1, 1, 1, 1, 0}, {1, 1, 1, 1, 0, 0}, {1, 1, 1, 0, 0, 0}, {1, 1, 0, 0, 0, 0}, {1, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}};
 }
