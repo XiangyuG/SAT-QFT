@@ -1,0 +1,208 @@
+int max(int a, int b) {
+    if (a > b) {
+        return a;
+    }
+    return b;
+}
+
+int min(int a, int b) {
+    if (a > b) {
+        return b;
+    }
+    return a;
+}
+
+void SWAP_first(ref int[6][2] pos, int i) {
+    int beg_u;
+    int end_u;
+    if (i < ??) {
+        beg_u = ?? + i * ??; // beg_u = 0;
+        end_u = ?? + i * ??; // end_u = 2 + 2 * i
+    } else if (i < ??) {
+        beg_u = ?? + i * ??; // beg_u = 0;
+        end_u = ?? + i * ??; // end_u = 6;
+    } else {
+        beg_u = i * ?? - ??; // beg_u = (i - 11) * 2;
+        end_u = ?? + i * ??; // end_u = 6;
+    }
+    
+    for (int k = beg_u; k < end_u; k += 2) {
+        int val = pos[0][k];
+        pos[0][k] = pos[0][k + 1];
+        pos[0][k + 1] = val;
+    }
+    int beg_d;
+    int end_d;
+    /*
+    if (i < 1){
+        beg_d = 2;
+        end_d = 4;
+    } else if (i <= 5) {
+        beg_d = 0;
+        end_d = 0;
+    } else if (i <= 8) {
+        beg_d = (i - 6) * 2;
+        end_d = (i - 6) * 2 + 2;
+    } else {
+        beg_d = 0;
+        end_d = 0;
+    }*/
+    if (i < ??) {
+        beg_d = max(?? - ?? * i, 0);
+        end_d = max(?? - ?? * i, 0);
+    } else if (i < ??) {
+        beg_d = i * ?? - ??;
+        end_d = i * ?? - ??;
+    } else {
+        beg_d = i * ?? - ??;
+        end_d = i * ?? + ??;
+    }
+    
+    for (int k = beg_d; k < end_d; k += 2) {
+        int val = pos[1][k];
+        pos[1][k] = pos[1][k + 1];
+        pos[1][k + 1] = val;
+    }
+}
+
+void CPHASE(ref int[6][2] pos, ref int[6][6] I, int i) {
+    int beg = max(??, ?? * i - ??); // int beg = max(1, (i - 11) * 2 + 1);
+    int end = min(?? * i + ??, ??); // int end = min(i * 2 + 2, 6);
+    // int beg = max(1, (i - 11) * 2 + 1);
+    // int end = min(i * 2 + 2, 6);
+    for (int k = beg; k < end; k += 2) {
+        int small = pos[0][k];
+        int big = pos[1][k - 1] - 6;
+        assert(I[small][big] == 0);
+        // I[0][6] before I[1][6]
+        for (int p = 0; p < small; p++) {
+            assert(I[p][big] == 1);
+        }
+        // I[0][6] before I[0][7]
+        for (int p = small + 1; p < big; p++) {
+            assert(I[small][p] == 1);
+        }
+        I[small][big] = 1;
+    }
+}
+
+void SWAP_second(ref int[6][2] pos, int i) {
+    // int beg_u;
+    // int end_u;
+    int beg_u; // beg_u = ?? * i + ??; // int beg_u = 1;
+    int end_u;
+    /*
+    if (i < 2) {
+        beg_u = 1;
+        end_u = (i + 1) * 2;
+    } else if (i < 12) {
+        beg_u = 1;
+        end_u = 4;
+    } else {
+        beg_u = 1;
+        end_u = (14 - i) * 2;
+    }*/
+    // int end_u = min((i + 1) * 2, 4); // end_u = min(?? * i + ??, ??); // int end_u = min((i + 1) * 2, 4);
+    
+    if (i < ??) {
+        beg_u = ?? * i + ??; 
+        end_u = ?? * i + ??; 
+    } else if (i < ??) {
+        beg_u = ?? * i + ??; 
+        end_u = ?? * i + ??; 
+    } else {
+        beg_u = -?? * i + ??; 
+        end_u = -?? * i + ??;
+    }
+    for (int k = beg_u; k < end_u; k += 2) {
+        int val = pos[0][k];
+        pos[0][k] = pos[0][k + 1];
+        pos[0][k + 1] = val;
+    }
+
+    int beg_d;
+    int end_d;
+    /*
+    if (i < 1) {
+        beg_d = 1;
+        end_d = 4;
+    } else {
+        beg_d = 0;
+        end_d = 0;
+    }*/
+    if (i < ??) {
+        beg_d = ?? + ?? * i; // int beg_d = 1;
+        end_d = ?? + ?? * i; // int end_d = 4;
+    } else {
+        beg_d = ?? + ?? * i; // int beg_d = 0;
+        end_d = ?? + ?? * i; // int end_d = 0;
+    }
+    for (int k = beg_d; k < end_d; k += 2) {
+        int val = pos[1][k];
+        pos[1][k] = pos[1][k + 1];
+        pos[1][k + 1] = val;
+    }
+}
+
+void SWAP_CPHASE_SWAP(ref int[6][2] pos, ref int[6][6] I, int i) {
+    SWAP_first(pos, i);
+    CPHASE(pos, I, i);
+    SWAP_second(pos, i);
+}
+
+
+int[6][6] foo() {
+    int[6][2] pos = {{0,1,2,3,4,5}, {6,7,8,9,10,11}};
+    int[6][6] I = {{0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, 
+                  {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}};
+    
+    int N = 14;
+    for (int i = 0; i < N; i++) {
+        SWAP_CPHASE_SWAP(pos, I, i);    
+    }
+    /*
+    SWAP_CPHASE_SWAP(pos, I, 0);    
+    // assert(pos == {{1,0,2,3,4,5},{6,7,9,8,10,11}});
+    assert(pos == {{??,??,??,??,??,??},{??,??,??,??,??,??}});
+    assert(I == {{1, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}});
+    SWAP_CPHASE_SWAP(pos, I, 1);    
+    // assert(pos == {{2,1,3,0,4,5},{6,7,9,8,10,11}});
+    assert(I == {{1, 1, 0, 0, 0, 0}, {1, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}});
+    SWAP_CPHASE_SWAP(pos, I, 2);    
+    assert(I == {{1, 1, 1, 0, 0, 0}, {1, 1, 0, 0, 0, 0}, {1, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}});
+    SWAP_CPHASE_SWAP(pos, I, 3);    
+    assert(I == {{1, 1, 1, 0, 0, 0}, {1, 1, 1, 0, 0, 0}, {1, 1, 0, 0, 0, 0}, {1, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}});
+    SWAP_CPHASE_SWAP(pos, I, 4);    
+    assert(I == {{1, 1, 1, 0, 0, 0}, {1, 1, 1, 0, 0, 0}, {1, 1, 1, 0, 0, 0}, {1, 1, 0, 0, 0, 0}, {1, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}});
+    SWAP_CPHASE_SWAP(pos, I, 5);    
+    assert(I == {{1, 1, 1, 0, 0, 0}, {1, 1, 1, 0, 0, 0}, {1, 1, 1, 0, 0, 0}, {1, 1, 1, 0, 0, 0}, {1, 1, 0, 0, 0, 0}, {1, 0, 0, 0, 0, 0}});
+    
+    SWAP_CPHASE_SWAP(pos, I, 6);    
+    assert(I == {{1, 1, 1, 1, 0, 0}, {1, 1, 1, 0, 0, 0}, {1, 1, 1, 0, 0, 0}, {1, 1, 1, 0, 0, 0}, {1, 1, 1, 0, 0, 0}, {1, 1, 0, 0, 0, 0}});
+    SWAP_CPHASE_SWAP(pos, I, 7);    
+    assert(I == {{1, 1, 1, 1, 1, 0}, {1, 1, 1, 1, 0, 0}, {1, 1, 1, 0, 0, 0}, {1, 1, 1, 0, 0, 0}, {1, 1, 1, 0, 0, 0}, {1, 1, 1, 0, 0, 0}});
+    SWAP_CPHASE_SWAP(pos, I, 8);    
+    assert(I == {{1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 0}, {1, 1, 1, 1, 0, 0}, {1, 1, 1, 0, 0, 0}, {1, 1, 1, 0, 0, 0}, {1, 1, 1, 0, 0, 0}});
+
+    SWAP_CPHASE_SWAP(pos, I, 9);    
+    assert(I == {{1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 0}, {1, 1, 1, 1, 0, 0}, {1, 1, 1, 0, 0, 0}, {1, 1, 1, 0, 0, 0}});
+    SWAP_CPHASE_SWAP(pos, I, 10);    
+    assert(I == {{1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 0}, {1, 1, 1, 1, 0, 0}, {1, 1, 1, 0, 0, 0}});
+    SWAP_CPHASE_SWAP(pos, I, 11);    
+    assert(I == {{1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 0}, {1, 1, 1, 1, 0, 0}});
+
+    SWAP_CPHASE_SWAP(pos, I, 12);    
+    assert(I == {{1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 0}});
+
+    SWAP_CPHASE_SWAP(pos, I, 13);    
+    assert(I == {{1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}});
+    */
+    return I;
+}
+
+harness void main() {
+
+    // assert foo() == {{1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 0}, {1, 1, 1, 1, 0, 0}, {1, 1, 1, 0, 0, 0}, {1, 1, 0, 0, 0, 0}, {1, 0, 0, 0, 0, 0}};
+    // assert foo() == {{1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}};
+    assert foo() == {{1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}};
+}
