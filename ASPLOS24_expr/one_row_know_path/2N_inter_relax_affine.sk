@@ -1,0 +1,109 @@
+/***
+Here we test the inter connection under the 2*N situation with strict dependency
+***/
+
+int min(int a, int b) {
+    if (a > b) {
+        return b;
+    }
+    return a;
+}
+
+int op1(int a, int b, int i) {
+    int selector = ??(2);
+    if (selector == 0) {
+        return a * i + b;
+    } else if (selector == 1) {
+        return a * i - b;
+    }
+    return - a * i + b;
+}
+
+int op2(int a, int b, int i) {
+    int selector = ??(2);
+    if (selector == 0) {
+        return a * i + b;
+    } else if (selector == 1) {
+        return a * i - b;
+    }
+    return - a * i + b;
+}
+
+int op3(int a, int b, int i) {
+    int selector = ??(2);
+    if (selector == 0) {
+        return a * i + b;
+    } else if (selector == 1) {
+        return a * i - b;
+    }
+    return - a * i + b;
+}
+
+int op4(int a, int b, int i) {
+    int selector = ??(2);
+    if (selector == 0) {
+        return a * i + b;
+    } else if (selector == 1) {
+        return a * i - b;
+    }
+    return - a * i + b;
+}
+
+void CPHASE(ref int[6][2] pos, ref int[6][6] I, int i){
+    int beg = ?? * i + ??; // int beg = 0;
+    int c1 = ??;
+    int c2 = ??;
+    int end = min(op1(c1, c2, i), op2(c1, c2, i)); // int end = min(i + 1, 11 - i);
+    for (int j = beg; j < end; j++) {
+        int small = pos[0][j];
+        int big = pos[1][j] - 6;
+        I[small][big] = I[small][big] + 1;
+    }
+}
+
+void SWAP(ref int[6][2] pos, int i){
+    int beg_u = i % 2;  // beg_u: 0,1
+    int beg_d = (beg_u + ??) % ??; // will cause some bug for the format: beg_d = (1 - beg_u);
+    int end_u = 6 - beg_u;
+    int c1 = ??;
+    int c2 = ??;
+    int end_d = min(op3(c1, c2, i), op4(c1, c2, i)); // int end_d = min(i, 10 - i);
+    
+    for (int j = beg_u; j < end_u; j += 2) {
+        int idx = pos[0][j];
+        pos[0][j] = pos[0][j + 1];
+        pos[0][j + 1] = idx;
+    }
+    for (int j = beg_d; j < end_d; j += 2) {
+        int new_idx = pos[1][j];
+        pos[1][j] = pos[1][j + 1];
+        pos[1][j + 1] = new_idx;
+    }
+}
+
+void CPHASE_SWAP(ref int[6][2] pos, ref int[6][6] I, int i) {
+    // CPHASE
+    CPHASE(pos, I, i);
+    // SWAP
+    SWAP(pos, i);
+}
+
+int[6][6] foo() {
+    int[6][2] pos = {{0,1,2,3,4,5}, {6,7,8,9,10,11}};
+    // I[i][j] = 1 --> CPHASE qubit i and qubit j + 6;
+    // I[0][0] --> 0 6
+    int[6][6] I = {{0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, 
+                    {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}};
+    
+    int N = 6;
+    for (int i = 0; i < N; i++) {
+        CPHASE_SWAP(pos, I, i);
+    }
+
+    return I;
+}
+
+harness void main() {
+    assert foo() == {{1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}};
+    // assert foo() == {{1, 0, 1, 0, 0, 0}, {1, 1, 0, 0, 0, 0}, {0, 0, 1, 0, 1, 0}, {0, 1, 0, 1, 0, 0}, {0, 0, 0, 0, 1, 1}, {0, 0, 0, 1, 0, 1}};
+}
