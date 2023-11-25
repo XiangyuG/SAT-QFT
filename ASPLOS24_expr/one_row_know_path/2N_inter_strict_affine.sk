@@ -55,10 +55,18 @@ void CPHASE(ref int[6][2] pos, ref int[6][6] I, int i){
     int c2 = ??;
     int c3 = ??;
     int c4 = ??;
-    int end = min(op1(c1, c2, i), op2(c3, c4, i)); // int end = min(i + 1, 11 - i);
+    int end = min(op1(c1, c2, i), op2(c3, c4, i));
     for (int j = beg; j < end; j++) {
         int small = pos[0][j];
         int big = pos[1][j] - 6;
+        // I[0][6] before I[1][6]
+        for (int p = 0; p < small; p++) {
+            assert(I[p][big] == 1);
+        }
+        // I[0][6] before I[0][7]
+        for (int p = small + 1; p < big; p++) {
+            assert(I[small][p] == 1);
+        }
         I[small][big] = I[small][big] + 1;
     }
 }
@@ -66,12 +74,12 @@ void CPHASE(ref int[6][2] pos, ref int[6][6] I, int i){
 void SWAP(ref int[6][2] pos, int i){
     int beg_u = i % 2;  // beg_u: 0,1
     int beg_d = (beg_u + ??) % ??; // will cause some bug for the format: beg_d = (1 - beg_u);
-    int end_u = 6 - beg_u;
+    int end_u = min(i + 1, 9 - i); // int end_u = min(i + 1, 9 - i);
     int c1 = ??;
     int c2 = ??;
     int c3 = ??;
     int c4 = ??;
-    int end_d = min(op3(c1, c2, i), op4(c3, c4, i)); // int end_d = min(i, 10 - i);
+    int end_d = min(op3(c1, c2, i), op4(c3, c4, i));
     
     for (int j = beg_u; j < end_u; j += 2) {
         int idx = pos[0][j];
@@ -99,15 +107,14 @@ int[6][6] foo() {
     int[6][6] I = {{0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, 
                     {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}};
     
-    int N = 6;
+    int N = 11;
     for (int i = 0; i < N; i++) {
         CPHASE_SWAP(pos, I, i);
     }
-
+    assert pos == {{??, ??, ??, ??, ??, ??},{??, ??, ??, ??, ??, ??}};
     return I;
 }
 
 harness void main() {
     assert foo() == {{1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}};
-    // assert foo() == {{1, 0, 1, 0, 0, 0}, {1, 1, 0, 0, 0, 0}, {0, 0, 1, 0, 1, 0}, {0, 1, 0, 1, 0, 0}, {0, 0, 0, 0, 1, 1}, {0, 0, 0, 1, 0, 1}};
 }
